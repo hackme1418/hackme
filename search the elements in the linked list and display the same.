@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Node structure
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+int main() {
+    struct Node *head = NULL, *temp, *newNode;
+    int n, i, val, key, found = 0;
+
+    printf("Enter number of nodes: ");
+    scanf("%d", &n);
+
+    // Create linked list
+    for(i = 0; i < n; i++) {
+        printf("Enter value for node %d: ", i + 1);
+        scanf("%d", &val);
+
+        newNode = (struct Node*)malloc(sizeof(struct Node));
+        newNode->data = val;
+        newNode->next = NULL;
+
+        if(head == NULL)
+            head = temp = newNode;
+        else {
+            temp->next = newNode;
+            temp = newNode;
+        }
+    }
+
+    // Search element
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+
+    temp = head;
+    while(temp != NULL) {
+        if(temp->data == key) {
+            printf("Element %d found in the list.\n", key);
+            found = 1;
+            break;
+        }
+        temp = temp->next;
+    }
+
+    if(!found)
+        printf("Element %d not found in the list.\n", key);
+
+    return 0;
+}
