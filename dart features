@@ -1,0 +1,12 @@
+```dart
+void main() {
+  int a = 10, b = 20;
+  print("Addition = ${a + b}");
+
+  String name = "Raj";
+  print("Name: $name");
+
+  for(int i = 1; i <= 3; i++) {
+    print(i);
+  }
+}
